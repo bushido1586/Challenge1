@@ -16,6 +16,14 @@ namespace Challenge1
             //Gets INdex of char from string
             int searchIndex = entry.IndexOf(searchInput);
             Console.WriteLine("Index of character {0} in string is {1}", searchInput, searchIndex);
+
+            Console.Write("Enter first name: ");
+            string firstName = Console.ReadLine();
+            Console.Write("Enter last name: ");
+            string lastName = Console.ReadLine();
+
+            string fullName = string.Concat(firstName, " ", lastName);
+            Console.WriteLine("Your full name is {0}", fullName);
         }
     }
 }
