@@ -6,38 +6,18 @@ namespace Challenge1
     {
         static void Main(string[] args)
         {
-            byte myByte = 25;
-            Console.WriteLine(myByte);
-            sbyte mySByte = -15;
-            Console.WriteLine(mySByte);
-            int myInt = -1245;
-            Console.WriteLine(myInt);
-            uint myUint = 12354;
-            Console.WriteLine(myUint);
-            short myShort = -35;
-            Console.WriteLine(myShort);
-            ushort myUshort = 65521;
-            Console.WriteLine(myUshort);
-            float myFloat = 31.56f;
-            Console.WriteLine(myFloat);
-            double myDouble = 332215.6694;
-            Console.WriteLine(myDouble);
-            char myChar = 'c';
-            Console.WriteLine(myChar);
-            bool myBool = true;
-            Console.WriteLine(myBool);
+            string name1 = "Paul";
+            string name2 = "Holly";
+            string name3 = "Aaron";
+            GreetFriend(name1);
+            GreetFriend(name2);
+            GreetFriend(name3);
+        }
 
-            string string1 = "I control text";
-            Console.WriteLine(string1);
-            string string2 = "15";
-            int myStringInt = int.Parse(string2);
-            Console.WriteLine(myStringInt);
-            
-
-            
-
-
-
+        public static void GreetFriend(string name)
+        {
+            Console.WriteLine("Hi " + name + ", my firend!");
+      
         }
     }
 }
