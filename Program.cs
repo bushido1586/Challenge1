@@ -4,25 +4,25 @@ namespace Challenge1
 {
     class Program
     {
-        static int highscore = 300;
-        static string highScorePlayer = "Brad";
+        // refrence -> state = temp >100? "gas" : temp <0 ?"solid":"liquid";
         static void Main(string[] args)
         {
-            ScoreCalculator("David", 250);
-            ScoreCalculator("Martin", 315);
-            ScoreCalculator("Brad", 325);
+            int temp = 0;
+            string tempMessage = string.Empty;
+            string inputValue = string.Empty;
 
-        }
-        public static void ScoreCalculator(string playerName, int score)
-        {
-            if( score > highscore){
-                highscore = score;
-                highScorePlayer = playerName;
-                Console.WriteLine("New High Score is " + score);
-                Console.WriteLine("High Score Holder is: " +playerName);
-            }else
+            Console.WriteLine("Please enter current temp: ");
+            inputValue = Console.ReadLine();
+            bool validInteger = int.TryParse(inputValue, out temp);
+
+            if (validInteger)
             {
-                Console.WriteLine("The old score stands, please try again. High score is still " +highscore+ " and held by " +highScorePlayer);
+                tempMessage = temp <= 15 ? "it is too cold here" : (temp >= 16 && temp <= 28) ? "it is ok" : temp > 28 ? "It is hot":"";
+                Console.WriteLine(tempMessage);
+            }
+            else
+            {
+                Console.WriteLine("Not a valid temperature");
             }
         }
     }
