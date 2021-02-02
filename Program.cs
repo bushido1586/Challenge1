@@ -4,26 +4,45 @@ namespace Challenge1
 {
     class Program
     {
-        // refrence -> state = temp >100? "gas" : temp <0 ?"solid":"liquid";
+        
         static void Main(string[] args)
         {
-            int temp = 0;
-            string tempMessage = string.Empty;
-            string inputValue = string.Empty;
+            string input = "0" ;
+            int count = 0;
+            int total = 0;
+            int currentNumber = 0;
 
-            Console.WriteLine("Please enter current temp: ");
-            inputValue = Console.ReadLine();
-            bool validInteger = int.TryParse(inputValue, out temp);
+            while (input != "-1")
+            {
+                Console.WriteLine("Last number was {0}", currentNumber);
+                Console.WriteLine("Please enter next score");
+                Console.WriteLine("Current number of entries {0}", count);
+                Console.WriteLine("Enter -1 to start calculations");
 
-            if (validInteger)
-            {
-                tempMessage = temp <= 15 ? "it is too cold here" : (temp >= 16 && temp <= 28) ? "it is ok" : temp > 28 ? "It is hot":"";
-                Console.WriteLine(tempMessage);
+                input = Console.ReadLine();
+                if (input.Equals("-1"))
+                {
+                    Console.WriteLine("---------------------------------------");
+                    //calculate average, give answer
+                    double average = (double)total / (double)count;
+                    Console.WriteLine("The average score is {0}", average);
+                }
+                if(int.TryParse(input, out currentNumber) && currentNumber >0 && currentNumber <21)
+                {
+                    total += currentNumber;
+                }
+                else
+                {
+                    if (!(input.Equals("-1")))
+                    {
+                        Console.WriteLine("Please enter a valur between 1 and 20.");
+                    }
+                    continue;
+                }
+                count++;
             }
-            else
-            {
-                Console.WriteLine("Not a valid temperature");
-            }
+            
+
         }
     }
 }
